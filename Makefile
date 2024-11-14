@@ -13,4 +13,7 @@ figures: code/02_make_figures.R output/data_clean.rds
 		
 .PHONY: clean
 clean:
-	rm -f output/*.rds && rm -f output/*.png && rm -f *.html
+	rm -f output/*.rds && rm -f output/*.png && rm -f *.html && rm -f *.pdf
+	
+	
+	

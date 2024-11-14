@@ -2,9 +2,11 @@
 title: "COVID-19 in Mexico Report"
 author: "Group 8"
 date: "`r Sys.Date()`"
-output: html_document
-params: 
-  severe: TRUE
+output:
+  html_document: default
+  pdf_document: default
+params:
+  severe: true
 ---
 
 ```{r, load-data}
@@ -17,6 +19,21 @@ proj_data <- readRDS(
 
 
 # Descriptive Analysis
+
+```{r, 1. Leshan - respiratory, echo=FALSE}
+table_resp <- readRDS(
+  file = here::here("output/table_resp.rds")
+)
+
+knitr::kable(table_resp, caption="Frequencies of Respiratory Diseases Cases by Covid-19 Status")
+
+# Show Figure
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/resp_fig.png")
+)
+```
 
 
 ```{r, non-respiratory}
