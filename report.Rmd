@@ -33,7 +33,19 @@ knitr::include_graphics(
 )
 ```
 
+```{r, severity}
+table_severity <- readRDS(
+  file = here::here("output/table_severity.rds")
+)
 
+table_severity
+
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/severity_fig.png")
+)
+```
 
 
 

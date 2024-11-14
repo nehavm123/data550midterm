@@ -23,6 +23,19 @@ table_nonresp <- covid %>%
 ## Save the table as an .rds file in the output folder
 saveRDS(table_nonresp, file = here::here("output/table_nonresp.rds"))
 
+## Create the frequency table by counting "Yes" responses for disease severity
+table_severity <- covid %>%
+  select(CASE_STATUS, ICU, INTUBED, DIED) %>%
+  group_by(CASE_STATUS) %>%
+  summarise(
+    ICU = sum(ICU == "Yes", na.rm = TRUE),
+    INTUBED = sum(INTUBED == "Yes", na.rm = TRUE),
+    DIED = sum(DIED == 1, na.rm = TRUE),
+  ) %>%
+  as.data.frame()
+
+## Save the table as an .rds file in the output folder
+saveRDS(table_severity, file = here::here("output/table_severity.rds"))
 
 
 

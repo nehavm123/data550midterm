@@ -29,3 +29,29 @@ nonresp_fig <- ggplot(table_nonresp_long, aes(x = Disease, y = Count, fill = CAS
 
 ## Save the plot as a .png file in the output folder
 ggsave(filename = here::here("output/nonresp_fig.png"), plot = nonresp_fig, width = 8, height = 6)
+
+# Create severity_fig
+## Load the frequency table data
+table_severity <- readRDS(here::here("output/table_severity.rds"))
+
+## Convert CASE_STATUS to a factor for better labeling in the plot
+table_severity$CASE_STATUS <- factor(table_severity$CASE_STATUS, labels = c("No COVID-19", "COVID-19"))
+
+## Reshape data for plotting
+table_severity_long <- table_severity %>%
+  pivot_longer(cols = -CASE_STATUS, names_to = "Type", values_to = "Count")
+
+## Create the grouped bar chart
+severity_fig <- ggplot(table_severity_long, aes(x = Type, y = Count, fill = CASE_STATUS)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(
+    title = "Severity Frequency by COVID-19 Status",
+    x = "COVID-19 Status",
+    y = "Frequency",
+    fill = "Severity Type"
+  ) +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+## Save the figure as a severity_fig.png file in the output folder
+ggsave(filename = here::here("output/severity_fig.png"), plot = severity_fig, width = 8, height = 6)
