@@ -14,45 +14,10 @@ proj_data <- readRDS(
 )
 ```
 
-# Demographic Characteristics
 
-```{r, table1}
-table_one <- readRDS(
-  file = here::here("output/table_one.rds")
-)
-
-table_one
-```
 
 # Descriptive Analysis
 
-```{r, severity, eval = params$severe}
-table_severe <- readRDS(
-  file = here::here("output/table_severe.rds")
-)
-
-table_one
-
-#| fig.align = "center",
-#| out.width = "600px"
-knitr::include_graphics(
-  here::here("output/severe_fig.png")
-)
-```
-
-```{r, respiratory}
-table_resp <- readRDS(
-  file = here::here("output/table_resp.rds")
-)
-
-table_resp
-
-#| fig.align = "center",
-#| out.width = "600px"
-knitr::include_graphics(
-  here::here("output/resp_fig.png")
-)
-```
 
 ```{r, non-respiratory}
 table_nonresp <- readRDS(
@@ -64,7 +29,7 @@ table_nonresp
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
-  here::here("output/nonresp_fig")
+  here::here("output/nonresp_fig.png")
 )
 ```
 
