@@ -33,6 +33,7 @@ knitr::kable(table_resp, caption="Frequencies of Respiratory Diseases Cases by C
 knitr::include_graphics(
   here::here("output/resp_fig.png")
 )
+
 ```
 
 
@@ -50,7 +51,19 @@ knitr::include_graphics(
 )
 ```
 
+```{r, severity, eval = params$severe}
+table_severity <- readRDS(
+  file = here::here("output/table_severity.rds")
+)
 
+table_severity
+
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/severity_fig.png")
+)
+```
 
 
 
