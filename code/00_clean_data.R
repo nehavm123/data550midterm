@@ -16,3 +16,4 @@ covid <- covid %>%
 
 # Save onto the output folder
 saveRDS(covid, file = here::here("output/data_clean.rds"))
+
