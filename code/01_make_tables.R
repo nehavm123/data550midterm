@@ -3,11 +3,13 @@ library(dplyr)
 here::i_am("code/01_make_tables.R")
 
 
-## Load the cleaned data
+# Load the cleaned data
 covid <- readRDS(here::here("output/data_clean.rds"))
 
-# Resp
-## 1. Leshan - Frequency of respiratory diseases (PNEUMONIA, COPD, and ASTHMA)
+# Frequency of demographic variables (AGE, SEX, CASE_STATUS)---------------------------------------------------------------------
+
+
+# Frequency of respiratory diseases (PNEUMONIA, COPD, and ASTHMA)---------------------------------------------------------------------
 table_resp <- covid %>%
   select(CASE_STATUS, PNEUMONIA, COPD, ASTHMA) %>%
   group_by(CASE_STATUS) %>%
@@ -22,8 +24,7 @@ table_resp <- covid %>%
 saveRDS(table_resp, file = here::here("output/table_resp.rds"))
 
 
-# Non-resp
-## Create the frequency table by counting "Yes" responses for each disease
+# Frequency of non-respiratory diseases (DIABETES, CARDIOVASCULAR, OBESITY, RENAL_CHRONIC, HYPERTENSION)---------------------------------------------------------------------
 table_nonresp <- covid %>%
   select(CASE_STATUS, DIABETES, CARDIOVASCULAR, OBESITY, RENAL_CHRONIC, HIPERTENSION) %>%
   group_by(CASE_STATUS) %>%
@@ -39,8 +40,7 @@ table_nonresp <- covid %>%
 ## Save the table as an .rds file in the output folder
 saveRDS(table_nonresp, file = here::here("output/table_nonresp.rds"))
 
-# Severity
-## Create the frequency table by counting "Yes" responses for disease severity
+# Frequency of severity variables (ICU, INTUBED, DIED)---------------------------------------------------------------------
 table_severity <- covid %>%
   select(CASE_STATUS, ICU, INTUBED, DIED) %>%
   group_by(CASE_STATUS) %>%
@@ -53,7 +53,6 @@ table_severity <- covid %>%
 
 ## Save the table as an .rds file in the output folder
 saveRDS(table_severity, file = here::here("output/table_severity.rds"))
-
 
 
 

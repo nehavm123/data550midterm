@@ -17,6 +17,9 @@ output/nonresp_fig.png output/resp_fig.png output/severity_fig.png: code/02_make
 .PHONY: clean
 clean:
 	rm -f output/*.rds && rm -f output/*.png && rm -f *.html && rm -f *.pdf
-	
+
+.PHONY: install
+install:
+    Rscript -e "renv::restore(prompt = FALSE)"
 	
 	

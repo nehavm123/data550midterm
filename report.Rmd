@@ -20,7 +20,14 @@ proj_data <- readRDS(
 
 # Descriptive Analysis
 
-```{r, 1. Leshan - respiratory, echo=FALSE}
+
+```{r, demographics, echo=FALSE}
+
+
+```
+
+
+```{r, respiratory, echo=FALSE}
 table_resp <- readRDS(
   file = here::here("output/table_resp.rds")
 )
@@ -37,7 +44,7 @@ knitr::include_graphics(
 ```
 
 
-```{r, non-respiratory}
+```{r, non-respiratory, echo = FALSE}
 table_nonresp <- readRDS(
   file = here::here("output/table_nonresp.rds")
 )
@@ -51,7 +58,7 @@ knitr::include_graphics(
 )
 ```
 
-```{r, severity, eval = params$severe}
+```{r, severity, echo = FALSE, eval = params$severe}
 table_severity <- readRDS(
   file = here::here("output/table_severity.rds")
 )

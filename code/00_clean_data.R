@@ -8,7 +8,7 @@ here::i_am("code/00_clean_data.R")
 covid_sub_location <- here::here("data/covid_sub.csv")
 covid <- read.csv(covid_sub_location, header = TRUE)
 
-# Create new variable to indicate if person has COVID-19
+# Create new variable to indicate if person has COVID-19 and if a person has died
 covid <- covid %>% 
   mutate(CASE_STATUS = ifelse(CLASIFFICATION_FINAL < 4, 1, 0),
          DIED = ifelse(!is.na(DATE_DIED), 1, 0)
