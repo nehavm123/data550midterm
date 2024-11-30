@@ -2,14 +2,12 @@
 title: "COVID-19 in Mexico Report"
 author: "Group 8"
 date: "`r Sys.Date()`"
-output:
-  html_document: default
-  pdf_document: default
+output: html_document
 params:
   severe: true
 ---
 
-```{r, load-data}
+```{r, load-data, echo=FALSE, message=FALSE}
 here::i_am("report.Rmd")
 proj_data <- readRDS(
   file = here::here("output/data_clean.rds")
@@ -34,7 +32,7 @@ table_resp <- readRDS(
   file = here::here("output/table_resp.rds")
 )
 
-knitr::kable(table_resp, caption="Frequencies of Respiratory Diseases Cases by Covid-19 Status")
+knitr::kable(table_resp, caption="Number of Cases with Respiratory Diseases by COVID-19 Status")
 
 # Show Figure
 #| fig.align = "center",
@@ -50,7 +48,7 @@ table_nonresp <- readRDS(
   file = here::here("output/table_nonresp.rds")
 )
 
-knitr::kable(table_nonresp, caption="Frequencies of Non-Respiratory Diseases Cases by Covid-19 Status")
+knitr::kable(table_nonresp, caption="Number of Cases with Non-Respiratory Chronic Diseases by COVID-19 Status")
 
 # Show Figure
 #| fig.align = "center",
@@ -66,7 +64,7 @@ table_severity <- readRDS(
   file = here::here("output/table_severity.rds")
 )
 
-knitr::kable(table_severity, caption="Frequencies of Disease Severity by Covid-19 Status")
+knitr::kable(table_severity, caption="Number of Cases with Indicators for Severe Disease by COVID-19 Status")
 
 # Show Figure
 #| fig.align = "center",

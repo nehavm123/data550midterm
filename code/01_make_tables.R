@@ -27,7 +27,7 @@ table_resp <- covid %>%
     ASTHMA = sum(ASTHMA == "Yes", na.rm = TRUE),
   ) %>%
   as.data.frame() %>%
-  rename("Covid Status"=CASE_STATUS)
+  rename("COVID-19 Status"=CASE_STATUS)
 
 
 ## Save the table to output/table_resp.rds
@@ -46,7 +46,7 @@ table_nonresp <- covid %>%
     HIPERTENSION = sum(HIPERTENSION == "Yes", na.rm = TRUE)
   ) %>%
   as.data.frame() %>%
-  rename("Covid Status"=CASE_STATUS,
+  rename("COVID-19 Status"=CASE_STATUS,
          "CHRONIC RENAL"=RENAL_CHRONIC)
 
 ## Save the table to output/table_nonresp.rds
@@ -64,7 +64,7 @@ table_severity <- covid %>%
     DIED = sum(DIED == 1, na.rm = TRUE),
   ) %>%
   as.data.frame() %>%
-  rename("Covid Status"=CASE_STATUS)
+  rename("COVID-19 Status"=CASE_STATUS)
 
 ## Save the table to output/table_severity.rds
 saveRDS(table_severity, file = here::here("output/table_severity.rds"))

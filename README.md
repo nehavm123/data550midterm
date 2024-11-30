@@ -7,10 +7,11 @@ The data for this project contains clinical and demographic information on COVID
 ------------------------------------------------------------------------
 ## How to Use
 1. Using R Console, set the project root directory as the working directory.
-  - Run `source('renv/activate.R')`
-  - Run `renv::restore()`
+  - Run `source('renv/activate.R')` to activate the project
 2. Using terminal, go to the project root directory.
-  - run `make` or `make report.html` to make the report.
+  - Run `make install` to synchronize the package environment.
+  - Run `make report.html` to make the report.
+3. In order to customize the report to include information on disease severity, set `severe = TRUE` in the render function in `03_render_report.R` before making the report. To exclude information on disease severity, set `severe = FALSE` in the render function in `03_render_report.R` before making the report.
 
 ------------------------------------------------------------------------
 
@@ -19,7 +20,7 @@ The data for this project contains clinical and demographic information on COVID
 `code/00_clean_data.R`
 
   - Reads in the raw dataset
-  - Creates a `CASE_STATUS` variable that is set to 1 to indicate having COVID-19 (if ```CLASIFFICATION_FINAL``` is less than 4) and 0 to indicate     not having COVID-19 (if ```CLASIFFICATION_FINAL``` is greater than or equal to 4)
+  - Creates a `CASE_STATUS` variable that is set to 1 to indicate having COVID-19 (if ```CLASIFFICATION_FINAL``` is less than 4) and 0 to indicate not having COVID-19 (if ```CLASIFFICATION_FINAL``` is greater than or equal to 4)
   - Creates a `DIED` variable that is set to 1 if ```DATE_DIED``` is not NA and 0 if the variable is NA.
   - Saves dataset with `CASE_STATUS` variable as `data_clean.rds` in `output/` folder
 
