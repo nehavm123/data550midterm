@@ -19,11 +19,13 @@ proj_data <- readRDS(
 
 
 # Descriptive Analysis
-
-
 ```{r, demographics, echo=FALSE}
+# Note for Neil: I've added a prototype for variable name and function structure below, so that we can keep a consistent format <remove this line when you've read it>
+table_demographics <- readRDS(
+  file = here::here("output/table_demographics.rds")
+)
 
-
+knitr::kable(table_demographics, caption="") # Add Caption here and delete this comment
 ```
 
 
@@ -40,7 +42,6 @@ knitr::kable(table_resp, caption="Frequencies of Respiratory Diseases Cases by C
 knitr::include_graphics(
   here::here("output/resp_fig.png")
 )
-
 ```
 
 
@@ -49,8 +50,9 @@ table_nonresp <- readRDS(
   file = here::here("output/table_nonresp.rds")
 )
 
-table_nonresp
+knitr::kable(table_nonresp, caption="Frequencies of Non-Respiratory Diseases Cases by Covid-19 Status")
 
+# Show Figure
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
@@ -58,13 +60,15 @@ knitr::include_graphics(
 )
 ```
 
+
 ```{r, severity, echo = FALSE, eval = params$severe}
 table_severity <- readRDS(
   file = here::here("output/table_severity.rds")
 )
 
-table_severity
+knitr::kable(table_severity, caption="Frequencies of Disease Severity by Covid-19 Status")
 
+# Show Figure
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(

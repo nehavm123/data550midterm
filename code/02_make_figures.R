@@ -5,7 +5,7 @@ library(tidyr)
 here::i_am("code/02_make_figures.R")
 
 
-# 1. Leshan - Create resp_fig
+# 1. Leshan - Create resp_fig ==============================================================================
 ## Load the frequency table data
 table_resp = readRDS(here::here("output/table_resp.rds"))
 
@@ -19,7 +19,7 @@ table_resp_long = table_resp %>%
 ## Create the grouped bar chart
 resp_fig = ggplot(table_resp_long, aes(x = Disease, y = Count, fill = CASE_STATUS)) +
   geom_bar(stat = "identity", position = position_dodge()) +
-  labs(title = "Number of Respiratory Disease Cases by COVID-19 Status",
+  labs(title = "Number of Respiratory Chronic Disease Cases by COVID-19 Status",
        x = "Respiratory Disease",
        y = "Count",
        fill = "COVID-19 Status") +
@@ -29,7 +29,7 @@ resp_fig = ggplot(table_resp_long, aes(x = Disease, y = Count, fill = CASE_STATU
 ggsave(filename = here::here("output/resp_fig.png"), plot = resp_fig, width = 8, height = 6)
 
 
-# Create nonresp_fig
+# Ziyi - Create nonresp_fig ================================================================================
 ## Load the frequency table data
 table_nonresp <- readRDS(here::here("output/table_nonresp.rds"))
 
@@ -43,18 +43,17 @@ table_nonresp_long <- table_nonresp %>%
 ## Create the grouped bar chart
 nonresp_fig <- ggplot(table_nonresp_long, aes(x = Disease, y = Count, fill = CASE_STATUS)) +
   geom_bar(stat = "identity", position = position_dodge()) +
-  labs(title = "Non-Respiratory Chronic Diseases by COVID-19 Status",
+  labs(title = "Number of Non-Respiratory Chronic Diseases by COVID-19 Status",
        x = "Non-Respiratory Chronic Disease",
        y = "Count",
        fill = "COVID-19 Status") +
-  theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ## Save the plot as a .png file in the output folder
 ggsave(filename = here::here("output/nonresp_fig.png"), plot = nonresp_fig, width = 8, height = 6)
 
 
-# Create severity_fig
+# Menglong - Create severity_fig ===========================================================================
 ## Load the frequency table data
 table_severity <- readRDS(here::here("output/table_severity.rds"))
 
@@ -69,12 +68,11 @@ table_severity_long <- table_severity %>%
 severity_fig <- ggplot(table_severity_long, aes(x = Type, y = Count, fill = CASE_STATUS)) +
   geom_bar(stat = "identity", position = position_dodge()) +
   labs(
-    title = "Severity Frequency by COVID-19 Status",
-    x = "COVID-19 Status",
-    y = "Frequency",
-    fill = "Severity Type"
+    title = "Number of Disease Severity Cases by COVID-19 Status",
+    x = "Severity Type",
+    y = "Count",
+    fill = "COVID-19 Status"
   ) +
-  theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ## Save the figure as a severity_fig.png file in the output folder

@@ -5,6 +5,14 @@
 The data for this project contains clinical and demographic information on COVID-19 cases in Mexico. We aim to conduct a descriptive analysis on different demographic and clinical factors of disease. The `data/` folder contains the raw data and a data dictionary. 
 
 ------------------------------------------------------------------------
+## How to Use
+1. Using R Console, set the project root directory as the working directory.
+  - Run `source('renv/activate.R')`
+  - Run `renv::restore()`
+2. Using terminal, go to the project root directory.
+  - run `make` or `make report.html` to make the report.
+
+------------------------------------------------------------------------
 
 ## Code Structure
 
