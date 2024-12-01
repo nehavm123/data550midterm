@@ -1,0 +1,3 @@
+"USMER","MEDICAL_UNIT","SEX","PATIENT_TYPE","DATE_DIED","INTUBED","PNEUMONIA","AGE","PREGNANT","DIABETES","COPD","ASTHMA","INMSUPR","HIPERTENSION","OTHER_DISEASE","CARDIOVASCULAR","OBESITY","RENAL_CHRONIC","TOBACCO","CLASIFFICATION_FINAL","ICU"
+"No",12,"male","hospitalization",NA,"No","Yes",64,"NA","Yes","No","No","No","Yes","No","Yes","No","No","No",3,"No"
+"Yes",6,"female","returned home","2020-03-31","NA","No",25,"No","No","Yes","No","Yes","No","No","No","Yes","No","Yes",7,"NA"
