@@ -15,17 +15,7 @@ proj_data <- readRDS(
 ```
 
 
-
 # Descriptive Analysis
-```{r, demographics, echo=FALSE}
-# Note for Neil: I've added a prototype for variable name and function structure below, so that we can keep a consistent format <remove this line when you've read it>
-table_demographics <- readRDS(
-  file = here::here("output/table_demographics.rds")
-)
-
-knitr::kable(table_demographics, caption="") # Add Caption here and delete this comment
-```
-
 
 ```{r, respiratory, echo=FALSE}
 table_resp <- readRDS(

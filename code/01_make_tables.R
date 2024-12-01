@@ -6,17 +6,6 @@ here::i_am("code/01_make_tables.R")
 # Load the cleaned data
 covid <- readRDS(here::here("output/data_clean.rds"))
 
-# Frequency of demographic variables (AGE, SEX, CASE_STATUS)---------------------------------------------------------------------
-table_demographics = data.frame(c("DemoGraphics-ToBeFilled"))
-# remember to rename variables to remove "_" in te variable names, e.g., rename("Covid Status"=CASE_STATUS)
-
-
-
-
-## Save the table to output/table_demographics.rds
-saveRDS(table_demographics, file = here::here("output/table_demographics.rds"))
-
-
 # Frequency of respiratory diseases (PNEUMONIA, COPD, and ASTHMA)----------------------------------------------------------------
 table_resp <- covid %>%
   select(CASE_STATUS, PNEUMONIA, COPD, ASTHMA) %>%

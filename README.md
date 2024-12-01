@@ -7,7 +7,7 @@ The data for this project contains clinical and demographic information on COVID
 ------------------------------------------------------------------------
 ## How to Use
 1. Using R Console, set the project root directory as the working directory.
-  - Run `source('renv/activate.R')` to activate the project
+  - Run `source('renv/activate.R')` to activate the project.
 2. Using terminal, go to the project root directory.
   - Run `make install` to synchronize the package environment.
   - Run `make report.html` to make the report.
@@ -26,7 +26,6 @@ The data for this project contains clinical and demographic information on COVID
 
 `code/01_make_tables.R`
 
-  - Creates `table_one` with descriptive statistics on demographic characteristics (frequency of sex, median for age, frequency of case status)
   - Creates frequency table (`table_severe`) for disease severity (ICU and died) among those who have COVID-19 and those who do not 
   - Creates frequency table (`table_resp`) for respiratory diseases (COPD and asthma) among those who have COVID-19 and those who do not 
   - Creates frequency table (`table_nonresp`) for non-respiratory chronic diseases (diabetes and hypertension) among those who have COVID-19 and those who do not
