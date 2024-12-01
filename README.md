@@ -2,7 +2,7 @@
 # Midterm Project: COVID-19 Cases in Mexico
 
 ## Data
-The data for this project contains clinical and demographic information on COVID-19 cases in Mexico. We aim to conduct a descriptive analysis on different demographic and clinical factors of disease. The `data/` folder contains the raw data and a data dictionary. 
+The data for this project contains clinical and demographic information on COVID-19 cases in Mexico. We aim to conduct a descriptive analysis on different demographic and clinical factors of disease. The `data/` folder contains the raw data (`covid_sub.csv`), pseudo datasets for code testing, and a data dictionary. 
 
 ------------------------------------------------------------------------
 ## How to Use
@@ -41,11 +41,17 @@ The data for this project contains clinical and demographic information on COVID
   - Renders the report
   - Specifies parameter value for `severe` when rendering the report 
 
+`code/04_psuedo_data_basic.R`
+
+  - Code for constructing modified datasets to test the report generation process
+  - Not required for building the final report
+    
 `report.Rmd`
 
   - Produces three descriptive analysis tables
   - Produces three bar charts
   - The parameter `severe` in the rmarkdown file will be set to `TRUE` to include information on disease severity and `FALSE` to not include information on disease severity.
+
   
 ------------------------------------------------------------------------
 
