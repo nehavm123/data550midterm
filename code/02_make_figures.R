@@ -83,3 +83,61 @@ severity_fig <- ggplot(table_severity_long, aes(x = Type, y = Count, fill = `COV
 
 ## Save the figure as a severity_fig.png file in the output folder
 ggsave(filename = here::here("output/severity_fig.png"), plot = severity_fig, width = 8, height = 6)
+
+
+# Neil - Creating Demographic Figures
+
+# Load the cleaned data
+covid <- readRDS(here::here("output/data_clean.rds"))
+
+# 1. CASE_STATUS Bar Chart ==============================================================================
+## Prepare data for CASE_STATUS bar chart
+case_status_counts <- covid %>%
+  count(CASE_STATUS) %>%
+  mutate(CASE_STATUS = factor(CASE_STATUS, levels = c("Not Severe Cases", "Severe Cases")))
+
+## Create the CASE_STATUS bar chart
+case_status_fig <- ggplot(case_status_counts, aes(x = CASE_STATUS, y = n, fill = CASE_STATUS)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(
+    title = "Number of Cases by COVID-19 Status",
+    x = "COVID-19 Status",
+    y = "Count"
+  ) +
+  theme_minimal()
+
+## Save the CASE_STATUS plot
+ggsave(filename = here::here("output/case_status_fig.png"), plot = case_status_fig, width = 8, height = 6)
+
+# 2. SEX Bar Chart =========================================================================================
+## Prepare data for SEX bar chart
+sex_counts <- covid %>%
+  count(SEX) %>%
+  mutate(SEX = factor(SEX, levels = c("Male", "Female")))
+
+## Create the SEX bar chart
+sex_fig <- ggplot(sex_counts, aes(x = SEX, y = n, fill = SEX)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(
+    title = "Number of Cases by Sex",
+    x = "Sex",
+    y = "Count"
+  ) +
+  theme_minimal()
+
+## Save the SEX plot
+ggsave(filename = here::here("output/sex_fig.png"), plot = sex_fig, width = 8, height = 6)
+
+# 3. AGE Box Plot ==========================================================================================
+## Create the AGE box plot
+age_fig <- ggplot(covid, aes(x = "", y = AGE)) +
+  geom_boxplot(fill = "skyblue", color = "darkblue") +
+  labs(
+    title = "Age Distribution of Cases",
+    x = "All Cases",
+    y = "Age"
+  ) +
+  theme_minimal()
+
+## Save the AGE plot
+ggsave(filename = here::here("output/age_fig.png"), plot = age_fig, width = 8, height = 6)

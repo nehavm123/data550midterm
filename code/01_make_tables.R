@@ -58,10 +58,20 @@ table_severity <- covid %>%
 ## Save the table to output/table_severity.rds
 saveRDS(table_severity, file = here::here("output/table_severity.rds"))
 
+# Overall summary of demographic variables (CASE_STATUS, SEX, and AGE)---------------------------
+table_demo <- covid %>%
+  summarise(
+    `Total Cases` = n(),
+    `Not Severe Cases` = sum(CASE_STATUS == "1", na.rm = TRUE),
+    `Severe Cases` = sum(CASE_STATUS == "0", na.rm = TRUE),
+    Male = sum(SEX == "Male", na.rm = TRUE),
+    Female = sum(SEX == "Female", na.rm = TRUE),
+    `Age (mean)` = mean(AGE, na.rm = TRUE),
+    `Age (median)` = median(AGE, na.rm = TRUE),
+    `Age (min)` = min(AGE, na.rm = TRUE),
+    `Age (max)` = max(AGE, na.rm = TRUE)
+  ) %>%
+  as.data.frame()
 
-
-
-
-
-
-
+# Save the table to output/table_demo.rds
+saveRDS(table_demo, file = here::here("output/table_demo.rds"))
